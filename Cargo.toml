@@ -3,7 +3,7 @@ name = "source-code-analyzer"
 version = "0.1.0"
 edition = "2021"
 authors = ["ruanswanepoel"]
-description = ""
+description = "A command line tool to anazlyze source code in a project."
 license = "Apache-2.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

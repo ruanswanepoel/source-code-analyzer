@@ -1,5 +1,6 @@
 use std::io::BufRead;
 
+/// Represents an overview of a project including files, folders, lines, and other metrics.
 struct ProjectOverview {
     files: u32,
     folders: u32,
@@ -9,6 +10,7 @@ struct ProjectOverview {
     blanks: u32,
 }
 
+/// Main function that initializes the application and processes command-line arguments.
 fn main() {
     let matches = clap::App::new("sce")
         .version(env!("CARGO_PKG_VERSION"))
@@ -30,6 +32,16 @@ fn main() {
     }
 }
 
+/// Evaluates the source code at the given path and returns an overview of the project.
+///
+/// # Arguments
+///
+/// * `path` - A string slice that holds the path to the source code.
+///
+/// # Returns
+///
+/// * `Result<ProjectOverview, &'static str>` - On success, returns a `ProjectOverview` struct,
+///   otherwise returns an error message.
 fn evaluate(path: &str) -> Result<ProjectOverview, &'static str> {
     let mut overview = ProjectOverview {
         files: 0,
@@ -86,6 +98,11 @@ fn evaluate(path: &str) -> Result<ProjectOverview, &'static str> {
     return Ok(overview);
 }
 
+/// Prints the results of the project overview.
+///
+/// # Arguments
+///
+/// * `overview` - A `ProjectOverview` struct that holds the metrics of the project.
 fn print_result(overview: ProjectOverview) {
     println!("Files: {}", overview.files);
     println!("Folders: {}", overview.folders);
